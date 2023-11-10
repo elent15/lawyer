@@ -5,6 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lawyer</title>
+  <link rel="preload" fetchpriority="high" as="image" href="./images/hero-320.jpg" type="image/jpg">
+  <link rel="preload" href="./fonts/NunitoSans-Black.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./fonts/NunitoSans-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./fonts/NunitoSans-ExtraBold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./fonts/NunitoSans-Light.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./fonts/NunitoSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./fonts/NunitoSans-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="./css/normalize.min.css">
   <link rel="stylesheet" href="./css/swiper-bundle.min.css">
   <link rel="stylesheet" href="./css/style.css">
@@ -46,6 +53,11 @@
     <div class="bottom-header">
       <div class="container header-container">
         <img src="./images/svg/logo.svg" alt="Логотип" class="logo header-logo" width="312" height="62">
+        <button class="btn-reset burger" type="button" aria-label="Меню">
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </button>
         <nav class="header-nav">
           <ul class="nav-list list-reset">
             <li class="nav-item">
@@ -80,18 +92,13 @@
             </li>
           </ul>
         </nav>
-        <div class="burger" tabindex="0">
-          <span class="burger-line"></span>
-          <span class="burger-line"></span>
-          <span class="burger-line"></span>
-        </div>
       </div>
     </div>
   </header>
   <div class="modal">
     <div class="modal-bg">
       <div class="modal-body">
-        <button class="btn-reset modal-close">
+        <button class="btn-reset modal-close" type="button">
           <svg width="24px" height="24px" viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M6.96967 16.4697C6.67678 16.7626 6.67678 17.2374 6.96967 17.5303C7.26256 17.8232 7.73744 17.8232 8.03033 17.5303L6.96967 16.4697ZM13.0303 12.5303C13.3232 12.2374 13.3232 11.7626 13.0303 11.4697C12.7374 11.1768 12.2626 11.1768 11.9697 11.4697L13.0303 12.5303ZM11.9697 11.4697C11.6768 11.7626 11.6768 12.2374 11.9697 12.5303C12.2626 12.8232 12.7374 12.8232 13.0303 12.5303L11.9697 11.4697ZM18.0303 7.53033C18.3232 7.23744 18.3232 6.76256 18.0303 6.46967C17.7374 6.17678 17.2626 6.17678 16.9697 6.46967L18.0303 7.53033ZM13.0303 11.4697C12.7374 11.1768 12.2626 11.1768 11.9697 11.4697C11.6768 11.7626 11.6768 12.2374 11.9697 12.5303L13.0303 11.4697ZM16.9697 17.5303C17.2626 17.8232 17.7374 17.8232 18.0303 17.5303C18.3232 17.2374 18.3232 16.7626 18.0303 16.4697L16.9697 17.5303ZM11.9697 12.5303C12.2626 12.8232 12.7374 12.8232 13.0303 12.5303C13.3232 12.2374 13.3232 11.7626 13.0303 11.4697L11.9697 12.5303ZM8.03033 6.46967C7.73744 6.17678 7.26256 6.17678 6.96967 6.46967C6.67678 6.76256 6.67678 7.23744 6.96967 7.53033L8.03033 6.46967ZM8.03033 17.5303L13.0303 12.5303L11.9697 11.4697L6.96967 16.4697L8.03033 17.5303ZM13.0303 12.5303L18.0303 7.53033L16.9697 6.46967L11.9697 11.4697L13.0303 12.5303ZM11.9697 12.5303L16.9697 17.5303L18.0303 16.4697L13.0303 11.4697L11.9697 12.5303ZM13.0303 11.4697L8.03033 6.46967L6.96967 7.53033L11.9697 12.5303L13.0303 11.4697Z" />
@@ -113,7 +120,7 @@
             </span>
             <input class="modal-form-input" name="phone" type="tel" placeholder="+7 (XXX) XXX-XX-XX">
           </label>
-          <button class="btn btn-reset primary-btn modal-form-btn">
+          <button class="btn btn-reset primary-btn modal-form-btn" type="submit">
             Заказать звонок
           </button>
         </form>
@@ -124,100 +131,80 @@
     <section class="hero">
       <div class="swiper hero-swiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide hero-swiper-slide">
-            <picture class="hero-picture">
-              <source media="(max-width: 540px)" srcset="./images/hero-320.webp" type="image/webp">
-              <source media="(max-width: 540px)" srcset="./images/hero-320.jpg">
-              <source media="(max-width: 1350px)" srcset="./images/hero-834.webp" type="image/webp">
-              <source media="(max-width: 1350px)" srcset="./images/hero-834.jpg">
-              <source srcset="./images/hero.webp" type="image/webp">
-              <img src="./images/hero.jpg" class="hero-img" alt="Библиотека" width="1920" height="820">
-            </picture>
-            <div class="container hero-container">
-              <h1 class="first-title">
-                <span class="first-title-span">
-                  Оказываем весь комплекс
-                </span>
-                Юридических услуг
-              </h1>
-              <p class="text subtitle hero-text">
-                Давно выяснено, что при оценке дизайна и&nbsp;композиции читаемый текст мешает сосредоточиться. Lorem
-                Ipsum
-                используют потому, что тот обеспечивает более или менее стандартное заполнение.
-              </p>
-              <button class="btn primary-btn btn-reset hero-btn">
-                Наши услуги
-              </button>
+          <div class="swiper-slide hero-swiper-slide hero-swiper-slide-1">
+            <div class="hero-swiper-slide-bg">
+              <div class="container hero-container">
+                <h1 class="first-title">
+                  <span class="first-title-span">
+                    Оказываем весь комплекс
+                  </span>
+                  Юридических услуг
+                </h1>
+                <p class="text subtitle hero-text">
+                  Давно выяснено, что при оценке дизайна и&nbsp;композиции читаемый текст мешает сосредоточиться. Lorem
+                  Ipsum
+                  используют потому, что тот обеспечивает более или менее стандартное заполнение.
+                </p>
+                <button class="btn primary-btn btn-reset hero-btn" type="button">
+                  Наши услуги
+                </button>
+              </div>
             </div>
           </div>
-          <div class="swiper-slide hero-swiper-slide">
-            <picture class="hero-picture">
-              <source media="(max-width: 540px)" srcset="./images/hero-320.webp" type="image/webp">
-              <source media="(max-width: 540px)" srcset="./images/hero-320.jpg">
-              <source media="(max-width: 1350px)" srcset="./images/hero-834.webp" type="image/webp">
-              <source media="(max-width: 1350px)" srcset="./images/hero-834.jpg">
-              <source srcset="./images/hero.webp" type="image/webp">
-              <img src="./images/hero.jpg" class="hero-img swiper-lazy" alt="Библиотека" loading="lazy" width="1920"
-                height="820">
-            </picture>
-            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-            <div class="container hero-container">
-              <h1 class="first-title">
-                <span class="first-title-span">
-                  Оказываем весь комплекс
-                </span>
-                Юридических услуг
-              </h1>
-              <p class="text subtitle hero-text">
-                Давно выяснено, что при оценке дизайна и&nbsp;композиции читаемый текст мешает сосредоточиться. Lorem
-                Ipsum
-                используют потому, что тот обеспечивает более или менее стандартное заполнение.
-              </p>
-              <button class="btn primary-btn btn-reset hero-btn">
-                Наши услуги
-              </button>
+          <div class="swiper-slide hero-swiper-slide hero-swiper-slide-2">
+            <div class="hero-swiper-slide-bg">
+              <div class="container hero-container">
+                <h1 class="first-title">
+                  <span class="first-title-span">
+                    Оказываем весь комплекс
+                  </span>
+                  Юридических услуг
+                </h1>
+                <p class="text subtitle hero-text">
+                  Давно выяснено, что при оценке дизайна и&nbsp;композиции читаемый текст мешает сосредоточиться. Lorem
+                  Ipsum
+                  используют потому, что тот обеспечивает более или менее стандартное заполнение.
+                </p>
+                <button class="btn primary-btn btn-reset hero-btn" type="button">
+                  Наши услуги
+                </button>
+              </div>
             </div>
           </div>
-          <div class="swiper-slide hero-swiper-slide">
-            <picture class="hero-picture">
-              <source media="(max-width: 540px)" srcset="./images/hero-320.webp" type="image/webp">
-              <source media="(max-width: 540px)" srcset="./images/hero-320.jpg">
-              <source media="(max-width: 1350px)" srcset="./images/hero-834.webp" type="image/webp">
-              <source media="(max-width: 1350px)" srcset="./images/hero-834.jpg">
-              <source srcset="./images/hero.webp" type="image/webp">
-              <img src="./images/hero.jpg" class="hero-img swiper-lazy" alt="Библиотека" loading="lazy" width="1920"
-                height="820">
-            </picture>
-            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-            <div class="container hero-container">
-              <h1 class="first-title">
-                <span class="first-title-span">
-                  Оказываем весь комплекс
-                </span>
-                Юридических услуг
-              </h1>
-              <p class="text subtitle hero-text">
-                Давно выяснено, что при оценке дизайна и&nbsp;композиции читаемый текст мешает сосредоточиться. Lorem
-                Ipsum
-                используют потому, что тот обеспечивает более или менее стандартное заполнение.
-              </p>
-              <button class="btn primary-btn btn-reset hero-btn">
-                Наши услуги
-              </button>
+          <div class="swiper-slide hero-swiper-slide hero-swiper-slide-3">
+            <div class="hero-swiper-slide-bg">
+              <div class="container hero-container">
+                <h1 class="first-title">
+                  <span class="first-title-span">
+                    Оказываем весь комплекс
+                  </span>
+                  Юридических услуг
+                </h1>
+                <p class="text subtitle hero-text">
+                  Давно выяснено, что при оценке дизайна и&nbsp;композиции читаемый текст мешает сосредоточиться. Lorem
+                  Ipsum
+                  используют потому, что тот обеспечивает более или менее стандартное заполнение.
+                </p>
+                <button class="btn primary-btn btn-reset hero-btn" type="button">
+                  Наши услуги
+                </button>
+              </div>
             </div>
           </div>
         </div>
         <div class="hero-swiper-control">
-          <div class="swiper-pagination-wrapper">
-            <div class="swiper-pagination">
+          <div class="container hero-swiper-control-container">
+            <div class="swiper-pagination-wrapper">
+              <div class="swiper-pagination">
+              </div>
             </div>
-          </div>
-          <div class="arrow-wrapper">
-            <div class="swiper-button-prev hero-swiper-button-prev">
-            </div>
-            <div class="swiper-button-line hero-swiper-button-line">
-            </div>
-            <div class="swiper-button-next hero-swiper-button-next">
+            <div class="arrow-wrapper">
+              <button class="btn-reset swiper-button-prev hero-swiper-button-prev" type="button">
+              </button>
+              <div class="swiper-button-line hero-swiper-button-line">
+              </div>
+              <button class="btn-reset swiper-button-next hero-swiper-button-next" type="button">
+              </button>
             </div>
           </div>
         </div>
@@ -232,6 +219,8 @@
           Давно выяснено, что при оценке дизайна и&nbsp;композиции читаемый текст мешает сосредоточиться. Lorem Ipsum
           используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона
         </p>
+      </div>
+      <div class="services-container-fluid">
         <div class="swiper services-swiper" data-mobile="false">
           <div class="services-wrapper swiper-wrapper">
             <div class="swiper-slide services-slide-auto">
@@ -538,47 +527,49 @@
             </div>
           </div>
         </div>
-        <button class="btn primary-btn btn-reset services-btn">
+      </div>
+      <div class="container services-container">
+        <button class="btn primary-btn btn-reset services-btn" type="button">
           Все услуги
         </button>
       </div>
     </section>
     <section class="section about-company" id="about-company">
       <div class="container about-company-container">
-        <div class="about-company-wrapper">
-          <div class="about-company-description">
-            <h2 class="second-title about-company-title">
-              Юридическая компания
-              <span class="about-company-span">
-                правозащитник
-              </span>
-            </h2>
-            <div class="text about-company-text">
-              Давно выяснено, что при оценке дизайна и&nbsp;композиции читаемый текст мешает сосредоточиться. Lorem
-              Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение.
-              <br><br>
-              Есть много вариантов Lorem Ipsum, но&nbsp;большинство из&nbsp;них имеет не&nbsp;всегда приемлемые
-              модификации, например, юмористические вставки или слова, которые даже отдалённо не&nbsp;напоминают
-              латынь.
-              Если вам нужен Lorem Ipsum для серьёзного проекта, вы&nbsp;наверняка не&nbsp;хотите какой-нибудь шутки,
-              скрытой в&nbsp;середине абзаца.
-              <br><br>
-              За&nbsp;прошедшие годы текст Lorem Ipsum получил много версий. Некоторые версии появились
-              по&nbsp;ошибке,
-              некоторые&nbsp;&mdash; намеренно (например, юмористические варианты).
-            </div>
-            <div class="about-company-btns">
-              <button class="btn primary-btn btn-reset history-btn">
-                История компании
-              </button>
-              <button class="btn secondary-btn btn-reset certificate-btn">
-                Сертификаты
-              </button>
-            </div>
+        <div class="about-company-description">
+          <h2 class="second-title about-company-title">
+            Юридическая компания
+            <span class="about-company-span">
+              правозащитник
+            </span>
+          </h2>
+          <div class="text about-company-text">
+            Давно выяснено, что при оценке дизайна и&nbsp;композиции читаемый текст мешает сосредоточиться. Lorem
+            Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение.
+            <br><br>
+            Есть много вариантов Lorem Ipsum, но&nbsp;большинство из&nbsp;них имеет не&nbsp;всегда приемлемые
+            модификации, например, юмористические вставки или слова, которые даже отдалённо не&nbsp;напоминают
+            латынь.
+            Если вам нужен Lorem Ipsum для серьёзного проекта, вы&nbsp;наверняка не&nbsp;хотите какой-нибудь шутки,
+            скрытой в&nbsp;середине абзаца.
+            <br><br>
+            За&nbsp;прошедшие годы текст Lorem Ipsum получил много версий. Некоторые версии появились
+            по&nbsp;ошибке,
+            некоторые&nbsp;&mdash; намеренно (например, юмористические варианты).
           </div>
+          <div class="about-company-btns">
+            <button class="btn primary-btn btn-reset history-btn" type="button">
+              История компании
+            </button>
+            <button class="btn secondary-btn btn-reset certificate-btn" type="button">
+              Сертификаты
+            </button>
+          </div>
+        </div>
+        <div class="about-company-img-block">
           <picture>
             <source srcset="./images/about-company.webp" type="image/webp">
-            <img src="./images/about-company.jpg" alt="Книги" class="about-company-img" width="535" height="359">
+            <img src="./images/about-company.jpg" alt="Книги" class="about-company-img" width="535" height="359" loading="lazy">
           </picture>
         </div>
       </div>
@@ -592,6 +583,8 @@
           Давно выяснено, что при оценке дизайна и&nbsp;композиции читаемый текст мешает сосредоточиться. Lorem Ipsum
           используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона
         </p>
+      </div>
+      <div class="container-fluid">
         <div class="swiper lawyers-swiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide slide-auto">
@@ -600,11 +593,11 @@
                   <picture class="lawyers-card-picture">
                     <source media="(max-width: 540px)" srcset="./images/lawyer-320-1.webp" type="image/webp">
                     <source media="(max-width: 540px)" srcset="./images/lawyer-320-1.jpg">
-                    <source media="(max-width: 1350px)" srcset="./images/lawyer-834-1.webp" type="image/webp">
-                    <source media="(max-width: 1350px)" srcset="./images/lawyer-834-1.jpg">
+                    <source media="(max-width: 1050px)" srcset="./images/lawyer-834-1.webp" type="image/webp">
+                    <source media="(max-width: 1050px)" srcset="./images/lawyer-834-1.jpg">
                     <source srcset="./images/lawyer-1.webp" type="image/webp">
                     <img src="./images/lawyer-1.jpg" alt="Фотография юриста компании" class="lawyers-img" width="312"
-                      height="320">
+                      height="320" loading="lazy">
                   </picture>
                   <div class="lawyers-card-description">
                     <h3 class="third-title lawyers-card-title">
@@ -675,11 +668,11 @@
                   <picture class="lawyers-card-picture">
                     <source media="(max-width: 540px)" srcset="./images/lawyer-320-2.webp" type="image/webp">
                     <source media="(max-width: 540px)" srcset="./images/lawyer-320-2.jpg">
-                    <source media="(max-width: 1350px)" srcset="./images/lawyer-834-2.webp" type="image/webp">
-                    <source media="(max-width: 1350px)" srcset="./images/lawyer-834-2.jpg">
+                    <source media="(max-width: 1050px)" srcset="./images/lawyer-834-2.webp" type="image/webp">
+                    <source media="(max-width: 1050px)" srcset="./images/lawyer-834-2.jpg">
                     <source srcset="./images/lawyer-2.webp" type="image/webp">
                     <img src="./images/lawyer-2.jpg" alt="Фотография юриста компании" class="lawyers-img" width="312"
-                      height="320">
+                      height="320" loading="lazy">
                   </picture>
                   <div class="lawyers-card-description">
                     <h3 class="third-title lawyers-card-title">
@@ -750,11 +743,11 @@
                   <picture class="lawyers-card-picture">
                     <source media="(max-width: 540px)" srcset="./images/lawyer-320-3.webp" type="image/webp">
                     <source media="(max-width: 540px)" srcset="./images/lawyer-320-3.jpg">
-                    <source media="(max-width: 1350px)" srcset="./images/lawyer-834-3.webp" type="image/webp">
-                    <source media="(max-width: 1350px)" srcset="./images/lawyer-834-3.jpg">
+                    <source media="(max-width: 1050px)" srcset="./images/lawyer-834-3.webp" type="image/webp">
+                    <source media="(max-width: 1050px)" srcset="./images/lawyer-834-3.jpg">
                     <source srcset="./images/lawyer-3.webp" type="image/webp">
                     <img src="./images/lawyer-3.jpg" alt="Фотография юриста компании" class="lawyers-img" width="312"
-                      height="320">
+                      height="320" loading="lazy">
                   </picture>
                   <div class="lawyers-card-description">
                     <h3 class="third-title lawyers-card-title">
@@ -825,11 +818,11 @@
                   <picture class="lawyers-card-picture">
                     <source media="(max-width: 540px)" srcset="./images/lawyer-320-4.webp" type="image/webp">
                     <source media="(max-width: 540px)" srcset="./images/lawyer-320-4.jpg">
-                    <source media="(max-width: 1350px)" srcset="./images/lawyer-834-4.webp" type="image/webp">
-                    <source media="(max-width: 1350px)" srcset="./images/lawyer-834-4.jpg">
+                    <source media="(max-width: 1050px)" srcset="./images/lawyer-834-4.webp" type="image/webp">
+                    <source media="(max-width: 1050px)" srcset="./images/lawyer-834-4.jpg">
                     <source srcset="./images/lawyer-4.webp" type="image/webp">
                     <img src="./images/lawyer-4.jpg" alt="Фотография юриста компании" class="lawyers-img" width="312"
-                      height="320">
+                      height="320" loading="lazy">
                   </picture>
                   <div class="lawyers-card-description">
                     <h3 class="third-title lawyers-card-title">
@@ -905,14 +898,16 @@
             Что о&nbsp;нас говорят клиенты
           </h2>
           <div class="arrow-wrapper reviews-arrow-wrapper">
-            <div class="swiper-button-prev reviews-swiper-button-prev">
-            </div>
+            <button class="btn-reset swiper-button-prev reviews-swiper-button-prev" type="button">
+            </button>
             <div class="swiper-button-line reviews-swiper-button-line">
             </div>
-            <div class="swiper-button-next reviews-swiper-button-next">
-            </div>
+            <button class="btn-reset swiper-button-next reviews-swiper-button-next" type="button">
+            </button>
           </div>
         </div>
+      </div>
+      <div class="container-fluid">
         <div class="swiper reviews-swiper">
           <div class="reviews-wrapper swiper-wrapper">
             <div class="swiper-slide slide-auto">
@@ -921,7 +916,7 @@
                   <picture>
                     <source srcset="./images/reviews-1.webp" type="image/webp">
                     <img src="./images/reviews-1.jpg" alt="Фотография клиента" class="reviews-card-img" width="80"
-                      height="80">
+                      height="80" loading="lazy">
                   </picture>
                   <div class="reviews-card-client-info">
                     <p class="text reviews-card-client-company">
@@ -954,7 +949,7 @@
                   <picture>
                     <source srcset="./images/reviews-2.webp" type="image/webp">
                     <img src="./images/reviews-2.jpg" alt="Фотография клиента" class="reviews-card-img" width="80"
-                      height="80">
+                      height="80" loading="lazy">
                   </picture>
                   <div class="reviews-card-client-info">
                     <p class="text reviews-card-client-company">
@@ -986,7 +981,7 @@
                   <picture>
                     <source srcset="./images/reviews-1.webp" type="image/webp">
                     <img src="./images/reviews-1.jpg" alt="Фотография клиента" class="reviews-card-img" width="80"
-                      height="80">
+                      height="80" loading="lazy">
                   </picture>
                   <div class="reviews-card-client-info">
                     <p class="text reviews-card-client-company">
@@ -1019,7 +1014,7 @@
                   <picture>
                     <source srcset="./images/reviews-2.webp" type="image/webp">
                     <img src="./images/reviews-2.jpg" alt="Фотография клиента" class="reviews-card-img" width="80"
-                      height="80">
+                      height="80" loading="lazy">
                   </picture>
                   <div class="reviews-card-client-info">
                     <p class="text reviews-card-client-company">
@@ -1048,10 +1043,10 @@
           </div>
         </div>
         <div class="reviews-btns">
-          <button class="btn primary-btn btn-reset reviews-btn">
+          <button class="btn primary-btn btn-reset reviews-btn" type="button">
             Все отзывы
           </button>
-          <button class="btn secondary-btn btn-reset write-review-btn">
+          <button class="btn secondary-btn btn-reset write-review-btn" type="button">
             Написать отзыв
           </button>
         </div>
@@ -1066,6 +1061,8 @@
           Давно выяснено, что при оценке дизайна и&nbsp;композиции читаемый текст мешает сосредоточиться. Lorem Ipsum
           используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона
         </p>
+      </div>
+      <div class="container-fluid">
         <div class="swiper materials-swiper">
           <div class="swiper-wrapper materials-wrapper">
             <div class="swiper-slide slide-auto">
@@ -1074,11 +1071,11 @@
                   <picture>
                     <source media="(max-width: 540px)" srcset="./images/materials-320-1.webp" type="image/webp">
                     <source media="(max-width: 540px)" srcset="./images/materials-320-1.jpg">
-                    <source media="(max-width: 1350px)" srcset="./images/materials-834-1.webp" type="image/webp">
-                    <source media="(max-width: 1350px)" srcset="./images/materials-834-1.jpg">
+                    <source media="(max-width: 1050px)" srcset="./images/materials-834-1.webp" type="image/webp">
+                    <source media="(max-width: 1050px)" srcset="./images/materials-834-1.jpg">
                     <source srcset="./images/materials-1.webp" type="image/webp">
                     <img src="./images/materials-1.jpg" alt="Небоскребы" class="materials-card-img" width="424"
-                      height="270">
+                      height="270" loading="lazy">
                   </picture>
                   <div class="hover-effect materials-card-hover">
                     <svg width="42" height="40" viewBox="0 0 42 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1125,9 +1122,11 @@
                   </div>
                 </div>
                 <div class="materials-card-content">
-                  <h3 class="third-title materials-card-content-title">
-                    Воистину радостный звук: шёпот бессменных лидеров
-                  </h3>
+                  <a class="materials-card-link" href="#">
+                    <h3 class="third-title materials-card-content-title">
+                      Воистину радостный звук: шёпот бессменных лидеров
+                    </h3>
+                  </a>
                   <span class="materials-card-content-date">
                     24&nbsp;апр.&nbsp;2023&nbsp;г.
                     <span class="materials-card-content-line"></span>
@@ -1146,11 +1145,11 @@
                   <picture>
                     <source media="(max-width: 540px)" srcset="./images/materials-320-2.webp" type="image/webp">
                     <source media="(max-width: 540px)" srcset="./images/materials-320-2.jpg">
-                    <source media="(max-width: 1350px)" srcset="./images/materials-834-2.webp" type="image/webp">
-                    <source media="(max-width: 1350px)" srcset="./images/materials-834-2.jpg">
+                    <source media="(max-width: 1050px)" srcset="./images/materials-834-2.webp" type="image/webp">
+                    <source media="(max-width: 1050px)" srcset="./images/materials-834-2.jpg">
                     <source srcset="./images/materials-2.webp" type="image/webp">
                     <img src="./images/materials-2.jpg" alt="Эйфелева башня" class="materials-card-img" width="424"
-                      height="270">
+                      height="270" loading="lazy">
                   </picture>
                   <div class="hover-effect materials-card-hover">
                     <svg width="42" height="40" viewBox="0 0 42 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1197,9 +1196,11 @@
                   </div>
                 </div>
                 <div class="materials-card-content">
-                  <h3 class="third-title materials-card-content-title">
-                    Франция намерена исследовать, почему объемы выросли
-                  </h3>
+                  <a class="materials-card-link" href="#">
+                    <h3 class="third-title materials-card-content-title">
+                      Франция намерена исследовать, почему объемы выросли
+                    </h3>
+                  </a>
                   <span class="materials-card-content-date">
                     12&nbsp;мар.&nbsp;2023&nbsp;г.
                     <span class="materials-card-content-line"></span>
@@ -1220,11 +1221,11 @@
                   <picture>
                     <source media="(max-width: 540px)" srcset="./images/materials-320-3.webp" type="image/webp">
                     <source media="(max-width: 540px)" srcset="./images/materials-320-3.jpg">
-                    <source media="(max-width: 1350px)" srcset="./images/materials-834-3.webp" type="image/webp">
-                    <source media="(max-width: 1350px)" srcset="./images/materials-834-3.jpg">
+                    <source media="(max-width: 1050px)" srcset="./images/materials-834-3.webp" type="image/webp">
+                    <source media="(max-width: 1050px)" srcset="./images/materials-834-3.jpg">
                     <source srcset="./images/materials-3.webp" type="image/webp">
                     <img src="./images/materials-3.jpg" alt="Руки команды" class="materials-card-img" width="424"
-                      height="270">
+                      height="270" loading="lazy">
                   </picture>
                   <div class="hover-effect materials-card-hover">
                     <svg width="42" height="40" viewBox="0 0 42 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1271,9 +1272,11 @@
                   </div>
                 </div>
                 <div class="materials-card-content">
-                  <h3 class="third-title materials-card-content-title">
-                    Сплочённость команды профессионалов продолжает удивлять
-                  </h3>
+                  <a class="materials-card-link" href="#">
+                    <h3 class="third-title materials-card-content-title">
+                      Сплочённость команды профессионалов продолжает удивлять
+                    </h3>
+                  </a>
                   <span class="materials-card-content-date">
                     02&nbsp;фев.&nbsp;2023&nbsp;г.
                     <span class="materials-card-content-line"></span>
@@ -1288,7 +1291,9 @@
             </div>
           </div>
         </div>
-        <button class="btn primary-btn btn-reset materials-btn">
+      </div>
+      <div class="container materials-container">
+        <button class="btn primary-btn btn-reset materials-btn" type="button">
           Все новости
         </button>
       </div>
@@ -1392,7 +1397,7 @@
             <picture>
               <source srcset="./images/footer.webp" type="image/webp">
               <img src="./images/footer.png" alt="Фотография консультанта" class="footer-middle-consultant-img"
-                width="65" height="65">
+                width="65" height="65" loading="lazy">
             </picture>
             <div class="footer-middle-consultant-info">
               <h3 class="third-title footer-middle-consultant-title">
@@ -1407,7 +1412,7 @@
             Есть над чем задуматься: тщательные исследования конкурентов разоблачены. Идейные соображения высшего
             порядка, а&nbsp;также перспективное планирование играет
           </div>
-          <button class="btn primary-btn footer-middle-btn btn-reset">
+          <button class="btn primary-btn footer-middle-btn btn-reset" type="button">
             Задать вопрос юристу
           </button>
         </div>

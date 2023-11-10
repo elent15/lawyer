@@ -74,7 +74,24 @@ function mobileSlider() {
 
 mobileSlider();
 
+function hideLogo() {
+  const bottom = document.querySelector('.bottom-header');
+  const logo = document.querySelector('.header-logo');
+  const hero = document.querySelector('.hero-container');
+
+  if ((document.documentElement.clientHeight - bottom.clientHeight - 52) < hero.clientHeight) {
+    bottom.style.backgroundColor = "transparent";
+    logo.style.opacity = 0;
+  } else {
+    bottom.style.backgroundColor = "rgba(1, 1, 1, 0.76)";
+    logo.style.opacity = 1;
+  }
+}
+
+hideLogo();
+
 window.addEventListener('resize', () => {
+  hideLogo();
   mobileSlider();
 });
 
@@ -144,8 +161,4 @@ modal.addEventListener('click', (el) => {
     inputPhone.value = '';
     inputName.value = '';
   }
-});
-
-modalBtn.addEventListener('click', (btn) => {
-  btn.preventDefault();
 });

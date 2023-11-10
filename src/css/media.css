@@ -1,11 +1,32 @@
-@media (max-width: 1350px) {
+@media (max-width: 1050px) {
   .container {
     max-width: 726px;
+  }
+
+  .container-fluid {
+    padding-left: max(15px, calc((100% - 696px) / 2));
+    padding-right: 0;
   }
 
   .section {
     padding-top: 60px;
     padding-bottom: 60px;
+  }
+
+  .first-title {
+    margin-bottom: 10px;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+  }
+
+  .second-title {
+    font-size: 24px;
+  }
+
+  .second-title::after {
+    bottom: -13px;
   }
 
   .header-contacts {
@@ -26,18 +47,19 @@
   }
 
   .header-logo {
-    width: 217px;
-    height: 45px;
+    width: 235px;
+    height: 47px;
   }
 
   .header-nav {
     position: absolute;
     top: -18px;
     right: 0;
-    padding-top: 50px;
+    padding-top: 90px;
+    padding-bottom: 50px;
     padding-left: 26px;
-    height: 529px;
-    width: 290px;
+    width: max(290px, 50%);
+    height: calc(100vh - 52px);
     background-color: var(--black-brown);
     overflow-y: auto;
     visibility: hidden;
@@ -52,6 +74,7 @@
 
   .burger {
     position: relative;
+    z-index: 10;
     display: flex;
     flex-direction: column;
     align-items: self-end;
@@ -59,12 +82,28 @@
     height: 18px;
     width: 22px;
     cursor: pointer;
+    outline-offset: 1px;
+    outline: 1px solid transparent;
+    transition: outline-color 0.3s ease-in-out;
+  }
+
+  .burger:focus-visible {
+    outline-style: solid;
+  }
+
+  .burger:focus {
+    outline-color: var(--blue);
   }
 
   .burger-line {
     height: 2px;
     width: 100%;
     background-color: var(--white);
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .burger:hover .burger-line {
+    background-color: var(--blue);
   }
 
   .burger-line:nth-child(2) {
@@ -77,7 +116,6 @@
 
   .burger--active .burger-line:first-child {
     position: absolute;
-    left: 25%;
     top: 50%;
     transform: rotate(45deg);
     transform-origin: center;
@@ -87,7 +125,6 @@
   .burger--active .burger-line:last-child {
     position: absolute;
     bottom: auto;
-    left: 25%;
     top: 50%;
     transform: rotate(-45deg);
     transform-origin: center;
@@ -97,46 +134,17 @@
   .nav-list {
     align-items: flex-start;
     flex-direction: column;
-    height: 234px;
+    height: 310px;
   }
 
   .nav-link {
     font-size: 16px;
   }
 
-  .hero {
-    height: 529px;
-  }
-
-  .hero-container {
-    padding-top: 148px;
-    height: 529px;
-  }
-
-  .first-title {
-    margin-bottom: 10px;
-    font-size: 50px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 150%;
-  }
-
   .first-title-span {
     margin-bottom: 8px;
     font-size: 24px;
     line-height: 120%;
-  }
-
-  .second-title {
-    font-size: 24px;
-  }
-
-  .second-title::after {
-    bottom: -13px;
-  }
-
-  .subtitle {
-    width: 696px;
   }
 
   .hero-text {
@@ -146,24 +154,30 @@
 
   .hero-swiper-control {
     bottom: 24px;
-    width: 696px;
   }
 
   .services-title {
     margin-left: -24px;
   }
 
+  .services-container-fluid {
+    padding: 0 max(15px, calc((100% - 696px) / 2));
+  }
+
+  .services-swiper {
+    margin-bottom: 47px;
+  }
+
   .services-wrapper {
-    grid-template-rows: repeat(3, 229px);
+    grid-template-rows: repeat(3, auto);
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
-    margin-bottom: 47px;
   }
 
   .services-card {
     padding-top: 30px;
     padding-bottom: 40px;
-    height: 229px;
+    min-height: 229px;
   }
 
   .services-card-title {
@@ -178,85 +192,54 @@
     margin-left: 16px;
   }
 
-  .about-company-wrapper {
-    grid-template-columns: 696px;
-    gap: 0;
+  .about-company-container {
+    justify-content: center;
   }
 
-  .about-company-img {
-    display: none;
+  .about-company-description {
+    width: 100%;
   }
 
   .about-company-text {
     margin-bottom: 36px;
-    width: 100%;
   }
 
-  .lawyers {
-    padding-bottom: 58px;
+  .about-company-img-block {
+    display: none;
   }
 
-  .lawyers-container {
-    max-width: 100%;
+  .lawyers-card {
+    max-width: 300px;
   }
 
-  .lawyers-swiper {
-    margin-left: clamp(0.313rem, -20.495rem + 45.79vw, 3.375rem);
-    margin-right: 0;
-  }
-
-  .lawyers-card-wrapper {
-    width: 300px;
-  }
-
-  .slide-auto {
-    width: auto;
-  }
-
-  .reviews-container {
-    margin-left: clamp(0.313rem, -20.495rem + 45.79vw, 3.375rem);
-    margin-right: 0;
-    max-width: 100%;
+  .lawyers-card-description {
+    padding-right: 14px;
   }
 
   .reviews-swiper-top {
     height: 49px;
-    width: 100%;
   }
 
-  .reviews-arrow-wrapper {
-    margin-right: 54px;
-  }
-
-  .reviews-wrapper {
+  .reviews-swiper {
     margin-bottom: 36px;
-    height: 265px;
   }
 
   .reviews-card {
-    height: 265px;
-    width: 576px;
+    max-width: 576px;
   }
 
   .reviews-card-client-info {
-    height: 51px;
-    width: 329px;
+    max-width: 329px;
   }
 
   .reviews-card-text {
+    max-width: 512px;
+    height: 105px;
     -webkit-line-clamp: 5;
-  }
-
-  .materials-container {
-    max-width: 100%;
   }
 
   .materials-title {
     margin-bottom: 44px;
-  }
-
-  .materials-card {
-    width: 336px;
   }
 
   .materials-text {
@@ -265,17 +248,19 @@
 
   .materials-swiper {
     margin-bottom: 46px;
-    margin-left: clamp(0.313rem, -20.495rem + 45.79vw, 3.375rem);
-    margin-right: 0;
+  }
+
+  .materials-card {
+    max-width: 336px;
   }
 
   .materials-card-content {
-    height: 211px;
     padding-top: 16px;
     padding-bottom: 16px;
   }
 
   .materials-card-content-text {
+    height: 85px;
     -webkit-line-clamp: 5;
   }
 
@@ -292,7 +277,7 @@
   }
 
   .footer-logo {
-    width: 276px;
+    height: 62px;
   }
 
   .footer-top-text {
@@ -304,19 +289,23 @@
     padding-bottom: 60px;
   }
 
+  .footer-middle-container {
+    gap: 26px;
+  }
+
   .footer-middle-list {
-    margin-right: 26px;
-    height: 203px;
     width: 335px;
+    height: 203px;
   }
 
   .footer-middle-item svg {
     margin-right: 16px;
-    height: 45px;
     width: 45px;
+    height: 45px;
   }
 
   .footer-middle-contacts {
+    min-height: 35px;
     font-size: 14px;
   }
 
@@ -330,88 +319,49 @@
 }
 
 @media (max-width: 726px) {
-  .container {
-    max-width: 540px;
-  }
-
-  .header-contacts-mail {
-    display: none;
+  .container-fluid {
+    padding-left: 15px;
   }
 
   .first-title {
     font-size: 30px;
   }
 
-  .first-title-span {
-    font-size: 18px;
-  }
-
   .second-title {
     font-size: 20px;
-    font-weight: 800;
   }
 
   .second-title::after {
     bottom: -10px;
   }
 
-  .subtitle {
-    width: 510px;
+  .first-title-span {
+    font-size: 18px;
   }
 
   .hero-text {
-    width: auto;
     font-size: 16px;
     line-height: 150%;
   }
 
-  .hero-swiper-control {
-    width: 510px;
-  }
-
-  .services-container {
-    max-width: 100%;
-  }
-
-  .services-swiper {
-    margin-left: 5px;
-    margin-right: 0;
+  .services-container-fluid {
+    padding-left: 15px;
+    padding-right: 0;
   }
 
   .services-wrapper {
-    grid-template-rows: 229px;
+    grid-template-rows: auto;
     grid-template-columns: repeat(6, 1fr);
     gap: 0;
   }
 
   .services-slide-auto {
     width: auto;
+    height: auto;
   }
 
   .services-card {
-    width: 336px;
-  }
-
-  .about-company-wrapper {
-    grid-template-columns: 510px;
-    grid-template-rows: auto;
-  }
-
-  .about-company-span {
-    font-weight: 900;
-  }
-
-  .lawyers-container {
-    max-width: 100%;
-  }
-
-
-  .reviews-container {
-    max-width: 100%;
-  }
-
-  .reviews-wrapper {
-    height: 303px;
+    width: 340px;
   }
 
   .reviews-arrow-wrapper {
@@ -419,18 +369,13 @@
   }
 
   .reviews-card {
-    padding: 24px;
-    height: 303px;
-    width: 340px;
-  }
-
-  .reviews-card-client-info {
-    width: 226px;
+    padding: 25px 24px;
+    max-width: 340px;
   }
 
   .reviews-card-img {
-    height: 50px;
     width: 50px;
+    height: 50px;
   }
 
   .reviews-card-client-title {
@@ -442,24 +387,23 @@
   }
 
   .reviews-card-text {
+    height: 189px;
     -webkit-line-clamp: 9;
   }
 
-  .materials-container {
-    max-width: 100%;
+  .footer-top-container {
+    justify-content: center;
   }
 
   .footer-middle-container {
     flex-direction: column;
-  }
-
-  .footer-middle-list {
-    margin-bottom: 45px;
+    align-items: center;
+    gap: 71px;
   }
 
   .footer-bottom-container {
     flex-direction: column;
-    height: 74px;
+    height: 42px;
   }
 
   /* модальное окно */
@@ -488,20 +432,16 @@
 
 @media (max-width: 540px) {
   .container {
-    max-width: 372px;
+    padding: 0 24px;
+  }
+
+  .container-fluid {
+    padding-left: 25px;
   }
 
   .section {
     padding-top: 40px;
     padding-bottom: 40px;
-  }
-
-  .first-title {
-    margin-left: -1px;
-  }
-
-  .second-title {
-    font-weight: 700;
   }
 
   .second-title::after {
@@ -511,32 +451,32 @@
   .subtitle {
     margin-bottom: 24px;
     font-size: 14px;
-    width: 342px;
   }
 
   .header-contacts {
     width: auto;
   }
 
+  .header-contacts-mail {
+    display: none;
+  }
+
   .order-call {
     line-height: 120%;
   }
 
-  .bottom-header {
-    top: 51px;
+  .top-header {
+    padding-bottom: 16px;
   }
 
-  .header-nav {
-    height: 486px;
+  .hero-swiper-slide {
+    background-position: center left;
   }
 
-  .hero {
-    height: 486px;
-  }
-
-  .hero-container {
-    padding-top: 142px;
-    height: 486px;
+  .hero-swiper-slide-1,
+  .hero-swiper-slide-2,
+  .hero-swiper-slide-3 {
+    background-image: url(../images/hero-320.jpg);
   }
 
   .hero-text {
@@ -545,19 +485,11 @@
   }
 
   .hero-btn {
-    margin-left: -16px;
+    margin-left: -13px;
   }
 
   .hero-swiper-control {
     display: none;
-  }
-
-  .services {
-    padding-top: 42px;
-  }
-
-  .services-container {
-    max-width: 100%;
   }
 
   .services-title {
@@ -565,19 +497,18 @@
     margin-left: 0;
   }
 
-  .services-swiper {
-    margin-left: 9px;
+  .services-container-fluid {
+    padding-left: 25px;
   }
 
-  .services-wrapper {
-    grid-template-rows: 215px;
+  .services-swiper {
     margin-bottom: 30px;
   }
 
   .services-card {
     padding: 24px 16px 32px;
     width: 250px;
-    height: 215px;
+    min-height: 215px;
   }
 
   .services-card .top-svg {
@@ -608,10 +539,6 @@
     right: 10px;
   }
 
-  .about-company-wrapper {
-    grid-template-columns: 342px;
-  }
-
   .about-company-text {
     margin-bottom: 40px;
   }
@@ -623,18 +550,6 @@
     width: auto;
   }
 
-  .lawyers {
-    padding-top: 41px;
-  }
-
-  .lawyers-container {
-    max-width: 100%;
-  }
-
-  .lawyers-swiper {
-    margin-left: 9px;
-  }
-
   .lawyers-title {
     margin-bottom: 29px;
   }
@@ -643,8 +558,8 @@
     margin-bottom: 30px;
   }
 
-  .lawyers-card-wrapper {
-    width: 250px;
+  .lawyers-card {
+    max-width: 250px;
   }
 
   .lawyers-card-picture {
@@ -652,7 +567,7 @@
   }
 
   .lawyers-card-description {
-    height: 113px;
+    min-height: 113px;
   }
 
   .lawyers-card-hover-text {
@@ -664,16 +579,11 @@
   }
 
   .reviews-container {
-    margin-left: 9px;
-    max-width: 100%;
+    margin-bottom: 37px;
   }
 
-  .reviews-wrapper {
-    margin-bottom: 21px;
-  }
 
   .reviews-swiper-top {
-    margin-bottom: 39px;
     height: auto;
   }
 
@@ -681,28 +591,25 @@
     margin-top: 0;
   }
 
+  .reviews-swiper {
+    margin-bottom: 24px;
+  }
+
   .reviews-card-header {
     margin-bottom: 14px;
   }
 
   .reviews-card-client-info {
-    height: 47px;
+    margin-left: 16px;
+    min-height: 47px;
   }
 
   .reviews-btns {
     align-items: center;
     flex-direction: column;
-    margin-left: -8px;
+    margin-left: -25px;
     height: 114px;
     width: auto;
-  }
-
-  .materials {
-    padding-top: 41px;
-  }
-
-  .materials-container {
-    max-width: 100%;
   }
 
   .materials-title {
@@ -711,12 +618,10 @@
 
   .materials-swiper {
     margin-bottom: 54px;
-    margin-left: 9px;
-    height: 443px;
   }
 
   .materials-card {
-    width: 250px;
+    max-width: 250px;
   }
 
   .materials-card-img-wrapper {
@@ -724,7 +629,7 @@
   }
 
   .materials-card-content {
-    height: 241px;
+    min-height: 241px;
   }
 
   .materials-card-content-title {
@@ -732,6 +637,7 @@
   }
 
   .materials-card-content-text {
+    height: 119px;
     -webkit-line-clamp: 7;
   }
 
@@ -744,104 +650,116 @@
   }
 
   .footer-top-container {
-    margin-left: 47px;
+    padding-bottom: 24px;
+  }
+
+  .footer-logo {
+    max-width: 100%;
+    height: auto;
   }
 
   .footer-middle {
     padding-bottom: 40px;
   }
 
+  .footer-middle-container {
+    align-items: flex-start;
+  }
+
   .footer-middle-list {
-    margin-bottom: 40px;
-    margin-right: 0;
+    max-width: 100%;
     height: 167px;
   }
 
   .footer-middle-contacts {
-    height: 35px;
+    line-height: 140%;
   }
 
   .footer-middle-questions {
     margin-left: 4px;
-  }
-
-  .footer-bottom-container {
-    height: 42px;
+    max-width: 100%;
   }
 }
 
-@media (max-width: 372px) {
+@media (max-width: 389px) {
   .container {
-    max-width: 320px;
+    padding: 0 15px;
   }
 
-  .subtitle {
-    width: 290px;
+  .container-fluid {
+    padding-left: 15px;
   }
 
-  .hero-container {
-    padding-top: 105px;
+  .top-header {
+    padding-top: 18px;
+    padding-bottom: 18px;
   }
 
-  .services-swiper {
+  .header-contacts-phone {
+    width: 147px;
+  }
+
+  .contacts-link svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .hero-btn {
     margin-left: 0;
   }
 
-  .about-company-wrapper {
-    grid-template-columns: 290px;
-  }
-
-  .lawyers-swiper {
-    margin-left: 0;
-  }
-
-  .reviews-container {
-    margin-left: 0;
+  .services-container-fluid {
+    padding-left: 15px;
   }
 
   .reviews-card {
-    width: 290px;
+    max-width: 290px;
+  }
+
+  .reviews-card-img {
+    width: 36px;
+    height: 36px;
   }
 
   .reviews-card-client-info {
-    width: 185px;
-  }
-
-  .reviews-card-header picture {
-    margin-right: 5px;
+    min-height: auto;
   }
 
   .reviews-card-client-title {
     font-size: 16px;
   }
 
-  .materials-swiper {
+  .reviews-btns {
+    margin-left: -15px;
+  }
+
+  .materials-btn {
     margin-left: 0;
   }
 
   .footer-top-container {
-    margin-left: 0;
+    padding-bottom: 24px;
   }
 
-  .footer-middle-list {
-    width: 290px;
-  }
-
-  .footer-middle-contacts {
-    height: auto;
-  }
-
-  .footer-middle-questions {
-    margin-left: 0;
-    width: 290px;
+  .footer-middle-consultant-img {
+    margin-right: 12px;
+    width: 48px;
+    height: 48px;
   }
 
   .footer-middle-consultant-info {
-    min-height: 51px;
-    height: auto;
+    min-height: auto;
   }
 
   .footer-middle-consultant-title {
     font-size: 18px;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
+  }
+
+  .modal-bg {
+    padding: 15px;
   }
 }
