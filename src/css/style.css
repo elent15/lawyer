@@ -304,6 +304,10 @@ body {
   transition: outline-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
+.order-call:focus-visible {
+  outline-style: solid;
+}
+
 .order-call:focus {
   outline-color: var(--blue);
 }
@@ -375,25 +379,21 @@ body {
   background-color: var(--blue);
 }
 
-.hero {
-  height: calc(100vh - 52px);
-}
-
-.hero-swiper {
-  height: 100%;
-}
-
 .hero-swiper-slide {
-  position: relative;
-  background-position: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 52px);
+  height: auto;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 .hero-swiper-slide-1,
 .hero-swiper-slide-2,
 .hero-swiper-slide-3 {
-  background-image: url(../images/hero.jpg);
+  background-image: url(../images/hero.webp);
 }
 
 .hero-swiper-slide-bg {
@@ -407,8 +407,9 @@ body {
 
 .hero-container {
   position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+  z-index: 5;
+  padding-top: 160px;
+  padding-bottom: 160px;
   text-align: center;
 }
 
@@ -852,7 +853,7 @@ body {
 
 .reviews {
   background-color: var(--gainsboro);
-  background-image: url(../images/reviews.jpg);
+  background-image: url(../images/reviews.webp);
   background-repeat: no-repeat;
   background-size: cover;
 }

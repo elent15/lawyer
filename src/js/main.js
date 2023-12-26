@@ -51,49 +51,32 @@ new Swiper('.materials-swiper', {
 });
 
 const slider = document.querySelector('.services-swiper');
+const mediaQuery = window.matchMedia('(max-width:726px)');
 let mySwiper;
 
-function mobileSlider() {
-  if (document.documentElement.clientWidth <= 726 && slider.dataset.mobile == 'false') {
+function mobileSlider(e) {
+  if (e && slider.dataset.mobile == 'false') {
     mySwiper = new Swiper(slider, {
       slidesPerView: 'auto',
-      spaceBetween: 24
+      spaceBetween: 24,
+      keyboard: true
     });
 
     slider.dataset.mobile = 'true';
-  }
-
-  if (document.documentElement.clientWidth > 726) {
+  } else {
     slider.dataset.mobile = 'false';
-
     if (slider.classList.contains('swiper-initialized')) {
       mySwiper.destroy();
     }
   }
 }
 
-mobileSlider();
-
-function hideLogo() {
-  const bottom = document.querySelector('.bottom-header');
-  const logo = document.querySelector('.header-logo');
-  const hero = document.querySelector('.hero-container');
-
-  if ((document.documentElement.clientHeight - bottom.clientHeight - 52) < hero.clientHeight) {
-    bottom.style.backgroundColor = "transparent";
-    logo.style.opacity = 0;
-  } else {
-    bottom.style.backgroundColor = "rgba(1, 1, 1, 0.76)";
-    logo.style.opacity = 1;
-  }
+if (slider) {
+  mobileSlider(mediaQuery.matches);
+  mediaQuery.addEventListener('change', function(e) {
+    mobileSlider(e.matches);
+  });
 }
-
-hideLogo();
-
-window.addEventListener('resize', () => {
-  hideLogo();
-  mobileSlider();
-});
 
 // burger-menu
 let burger = document.querySelector('.burger');
@@ -140,11 +123,13 @@ const modalBtn = document.querySelector('.modal-form-btn');
 const body = document.body;
 const inputName = document.querySelector('input[name="name"]');
 
-orderCall.addEventListener('click', (link) => {
-  link.preventDefault();
+orderCall.addEventListener('click', (btn) => {
   mask.updateValue();
   modal.classList.add('modal-open');
   body.classList.add('stop-scroll');
+  setTimeout(() => {
+    inputName.focus();
+  }, 500);
 });
 
 modal.addEventListener('click', (el) => {

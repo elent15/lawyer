@@ -52,8 +52,8 @@
   }
 
   .header-nav {
-    position: absolute;
-    top: -18px;
+    position: fixed;
+    top: 52px;
     right: 0;
     padding-top: 90px;
     padding-bottom: 50px;
@@ -145,6 +145,11 @@
     margin-bottom: 8px;
     font-size: 24px;
     line-height: 120%;
+  }
+
+  .hero-container {
+    padding-top: 130px;
+    padding-bottom: 130px;
   }
 
   .hero-text {
@@ -476,7 +481,12 @@
   .hero-swiper-slide-1,
   .hero-swiper-slide-2,
   .hero-swiper-slide-3 {
-    background-image: url(../images/hero-320.jpg);
+    background-image: url(../images/hero-320.webp);
+  }
+
+  .hero-container {
+    padding-top: 130px;
+    padding-bottom: 130px;
   }
 
   .hero-text {
@@ -702,6 +712,11 @@
   .contacts-link svg {
     width: 16px;
     height: 16px;
+  }
+
+  .hero-container {
+    padding-top: 130px;
+    padding-bottom: 130px;
   }
 
   .hero-btn {
